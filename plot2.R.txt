@@ -5,6 +5,7 @@ newfile$Time  <- strptime(paste(newfile$Date,newfile$Time),format = "%d/%m/%Y %H
 newfile$Date <- as.Date(newfile$Date,"%d/%m/%Y")
 sapply(newfile,class)
 library(datasets)
-with(newfile, plot(Time, Global_active_power))
+with(newfile, plot(Time, Global_active_power, type="n"))
+lines(newfile$Time, newfile$Global_active_power)
 title(main="Plot 2")
 dev.off()
